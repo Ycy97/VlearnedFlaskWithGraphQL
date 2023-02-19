@@ -5,7 +5,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
 #Reading data from CSV file, will be replacing it with GraphQL API call to retrieve data and process into matrix
-df = pd.read_csv("RecommendationEngine\sample-data.csv")
+df = pd.read_csv("VlearnedFlaskWithGraphQL\RecommendationEngine\sample-data.csv")
 
 tf = TfidfVectorizer(analyzer='word', ngram_range=(1,3), min_df=0, stop_words='english')
 
