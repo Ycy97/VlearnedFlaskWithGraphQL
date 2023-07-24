@@ -24,8 +24,8 @@ resource_data = pd.read_csv("VlearnedFlaskWithGraphQL\RecommendationEngine\mathR
 min_rating = ratings_data.rating.min()
 max_rating = ratings_data.rating.max()
 
-print(min_rating)
-print(max_rating)
+#print(min_rating)
+#print(max_rating)
 
 reader = Reader(rating_scale=(min_rating, max_rating))
 data = Dataset.load_from_df(ratings_data[['userId', 'resourceId', 'rating']], reader)

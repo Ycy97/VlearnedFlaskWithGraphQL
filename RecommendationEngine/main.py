@@ -2,8 +2,11 @@
 
 from flask import Flask, jsonify
 from content_based_filtering_recommender import startRecommend, modify
+from content_based_filtering_maths import get_recommendations
 import requests
 import json
+import pandas as pd
+import random
 
 app = Flask(__name__)
 
@@ -76,6 +79,30 @@ def analyzeData():
     dataReturned = json.dumps(response.json())
     print(f'Data returned : {dataReturned}')
     return (modify(dataReturned))
+
+
+#Define 2 API for math resources recommendation
+
+#Recommendation based on Content-based Filtering for tackling cold start problems
+@app.route('/contentBasedRecommendationMath')
+def mathContentBasedFiltering():
+    df = pd.read_csv("VlearnedFlaskWithGraphQL\RecommendationEngine\mathResources.csv", low_memory=False)
+    rsc_title = df['title'].values
+    rand_max_limit = len(rsc_title)
+    rand_rsc_title =  random.randint(0,rand_max_limit)
+    title  = rsc_title[rand_rsc_title]
+    recommended_list = get_recommendations(title).values
+    #return recommendations list in the form of JSON to be used by Front-End
+    return jsonify({
+        "title" : title,
+        "payload" : recommended_list.tolist()
+        })
+    
+
+#Recommendation based on Collaborative-Filtering using Surprise Library for user-based recommendation
+@app.route('/collorativeFilteringMath')
+def mathCollaborativeFiltering():
+    pass
 
 
 if __name__ == '__main__':
