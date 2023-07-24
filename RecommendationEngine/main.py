@@ -3,6 +3,7 @@
 from flask import Flask, jsonify
 from content_based_filtering_recommender import startRecommend, modify
 from content_based_filtering_maths import get_recommendations
+from collaborative_filtering_math_flaskVersion import generate_recommendation
 import requests
 import json
 import pandas as pd
@@ -100,9 +101,19 @@ def mathContentBasedFiltering():
     
 
 #Recommendation based on Collaborative-Filtering using Surprise Library for user-based recommendation
-@app.route('/collorativeFilteringMath')
+@app.route('/collaborativeFilteringMath')
 def mathCollaborativeFiltering():
-    pass
+
+    user_id = 23
+    n_items = 10
+
+    recommended_list = generate_recommendation(user_id, n_items)
+    return jsonify(
+        {
+            "payload": recommended_list,
+            "msg": f"Top {str(n_items)} Recommendation for user : {str(user_id)}",
+        }
+    )
 
 
 if __name__ == '__main__':
