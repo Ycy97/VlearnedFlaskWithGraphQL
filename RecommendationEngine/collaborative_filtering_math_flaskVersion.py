@@ -1,3 +1,5 @@
+#https://medium.com/tiket-com/get-to-know-with-surprise-2281dd227c3e
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt

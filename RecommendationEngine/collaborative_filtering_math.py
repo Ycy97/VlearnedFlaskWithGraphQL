@@ -1,3 +1,21 @@
+#https://medium.com/tiket-com/get-to-know-with-surprise-2281dd227c3e
+
+"""
+#Why author apply rating 4 to all unseen data
+
+The author applied a rating of 4 to all the interactions that are used in the test_set for generating recommendations. This step was taken to match the format of the Surprise dataset.
+
+In the Surprise library, datasets are typically represented as triples of (user_id, item_id, rating), where rating is the interaction strength between the user and the item. Ratings are typically given on a numerical scale, and higher values indicate stronger interactions or preferences.
+
+However, in the provided code, the author does not have explicit information on the actual user-item interactions for the test set, as it only contains a list of resources (resource_ids_to_pred) that have not been read by the user. The goal is to generate recommendations for these resources. Since there are no actual user ratings for these items, the author assigns a default rating of 4 to all interactions in the test set.
+
+By applying a rating of 4 to all the interactions in the test set, the code ensures that the Surprise library can work with this dataset format and predict ratings for the resources that have not been read by the user. It is important to note that the specific value of 4 is arbitrary and chosen to provide a common baseline rating for all the items in the test set.
+
+In the Surprise library, the model's predictions will be based on the user-item interactions in the training set, and it will attempt to estimate how much the user would rate these unrated items based on their past interactions with other items in the training set.
+
+Overall, this approach allows the author to use Surprise's prediction capabilities to generate personalized recommendations for the user based on the provided ratings_data and resource_data.
+"""
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -35,8 +53,8 @@ data = Dataset.load_from_df(ratings_data[['userId', 'resourceId', 'rating']], re
 svd = SVD(n_epochs=10)
 results = cross_validate(svd, data, measures=['RMSE', 'MAE'], cv=10, verbose=True)
 
-#print("Average MAE : ", np.average(results["test_mae"]))
-#print("Average RMSE : ", np.average(results["test_rmse"]))
+print("Average MAE : ", np.average(results["test_mae"]))
+print("Average RMSE : ", np.average(results["test_rmse"]))
 
 #Hyperparameter Tuning
 #uses grid search cross-validation in hyperparameter tuning
