@@ -46,12 +46,12 @@ rand_max_limit = len(rsc_title)
 #print(f"Number of elements in array : {rand_max_limit}")
 
 #creates randomizer for recommendation
-rand_rsc_title =  random.randint(0,rand_max_limit)
-print(rand_rsc_title)
+rand_rsc_title =  random.randint(0,rand_max_limit-1)
+#print(rand_rsc_title)
 
-print("Top 10 Recommended Resource you may like based on " + rsc_title[rand_rsc_title] + "\n")
+#print("Top 10 Recommended Resource you may like based on " + rsc_title[rand_rsc_title] + "\n")
 recommended_list = get_recommendations(rsc_title[rand_rsc_title]).values
 
 #for loop to list out the resources title
-for x in recommended_list:
-    print(x)
+# for x in recommended_list:
+#     print(x)

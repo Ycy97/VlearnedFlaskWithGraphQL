@@ -11,10 +11,10 @@ import random
 
 app = Flask(__name__)
 
-@app.route('/landingPage')
-def recommendedItem():
-    results = startRecommend()
-    return jsonify({"payload" : results})
+# @app.route('/landingPage')
+# def recommendedItem():
+#     results = startRecommend()
+#     return jsonify({"payload" : results})
 
 @app.route('/graphql')
 def get_graphql_data():
@@ -104,7 +104,7 @@ def mathContentBasedFiltering():
 @app.route('/collaborativeFilteringMath')
 def mathCollaborativeFiltering():
 
-    user_id = 23
+    user_id = random.randint(1,600)
     n_items = 10
 
     recommended_list = generate_recommendation(user_id, n_items)

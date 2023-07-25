@@ -21,7 +21,7 @@ for idx, row in df.iterrows():
 
     results[row['resource_id']] = similar_items[1:]
 
-print('Cosine Similarities Computation Completed!')
+#print('Cosine Similarities Computation Completed!')
 
 def item(id):
     return df.loc[df['resource_id'] == id]['genre'].tolist()[0].split(' - ')[0]
@@ -50,4 +50,4 @@ def startRecommend():
 def modify(graphQLResponse):
     return "Modified : " + graphQLResponse
     
-startRecommend()
+#startRecommend()
