@@ -90,7 +90,7 @@ def mathContentBasedFiltering():
     df = pd.read_csv("VlearnedFlaskWithGraphQL\RecommendationEngine\mathResources.csv", low_memory=False)
     rsc_title = df['title'].values
     rand_max_limit = len(rsc_title)
-    rand_rsc_title =  random.randint(0,rand_max_limit)
+    rand_rsc_title =  random.randint(0,rand_max_limit-1)
     title  = rsc_title[rand_rsc_title]
     recommended_list = get_recommendations(title).values
     #return recommendations list in the form of JSON to be used by Front-End
