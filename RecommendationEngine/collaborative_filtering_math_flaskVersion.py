@@ -13,8 +13,8 @@ from surprise.model_selection import train_test_split
 
 def generate_recommendation(user_id, n_items):
 
-    ratings_data = pd.read_csv("VlearnedFlaskWithGraphQL\RecommendationEngine\\resource_ratings.csv", low_memory=False)
-    resource_data = pd.read_csv("VlearnedFlaskWithGraphQL\RecommendationEngine\mathResources.csv", low_memory=False)
+    ratings_data = pd.read_csv("resource_ratings.csv", low_memory=False)
+    resource_data = pd.read_csv("mathResources.csv", low_memory=False)
 
     min_rating = ratings_data.rating.min()
     max_rating = ratings_data.rating.max()
