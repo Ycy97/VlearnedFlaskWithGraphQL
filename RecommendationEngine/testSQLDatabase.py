@@ -10,21 +10,15 @@ mydb = mysql.connector.connect(
     database="recommendation_engine"
 )
 
-mycursor = mydb.cursor()
-
 sql_query = "SELECT * FROM mathresources"
 
-mycursor.execute(sql_query)
-
-df_sql_data = pd.DataFrame(mycursor.fetchall())
+df_sql_data = pd.read_sql(sql=sql_query, con=mydb)
 
 print(df_sql_data)
 
 sql_query2 = "SELECT * FROM resource_ratings"
 
-mycursor.execute(sql_query2)
-
-df_sql_data2 = pd.DataFrame(mycursor.fetchall())
+df_sql_data2 = pd.read_sql(sql=sql_query2, con=mydb)
 
 print(df_sql_data2)
 

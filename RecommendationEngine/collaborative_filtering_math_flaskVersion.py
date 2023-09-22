@@ -9,11 +9,27 @@ from surprise import SVD
 from surprise.model_selection import cross_validate
 from surprise.model_selection import GridSearchCV
 from surprise.model_selection import train_test_split
+import mysql.connector
+
+#SQL connection
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="khcy6ycy",
+    database="recommendation_engine"
+)
+
+
+sql_query = "SELECT * FROM mathresources"
+sql_query2 = "SELECT * FROM resource_ratings"
+resource_data = pd.read_sql(sql=sql_query, con=mydb)
+ratings_data = pd.read_sql(sql=sql_query2, con=mydb)
+
 
 def generate_recommendation(user_id, n_items):
 
-    ratings_data = pd.read_csv("resource_ratings.csv", low_memory=False)
-    resource_data = pd.read_csv("mathResources.csv", low_memory=False)
+    # ratings_data = pd.read_csv("resource_ratings.csv", low_memory=False)
+    # resource_data = pd.read_csv("mathResources.csv", low_memory=False)
 
     min_rating = ratings_data.rating.min()
     max_rating = ratings_data.rating.max()
@@ -62,3 +78,4 @@ def generate_recommendation(user_id, n_items):
         final_list.append(resource_data[resource_data["resource_id"] == resource_ids]["title"].values[0])
 
     return final_list
+

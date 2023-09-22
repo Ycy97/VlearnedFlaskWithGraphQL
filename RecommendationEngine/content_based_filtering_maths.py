@@ -1,16 +1,28 @@
 #Content-Based Recommender for Maths Resources(self-generated)
 
 import pandas as pd
-import numpy as np
 import random
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
+import mysql.connector
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="khcy6ycy",
+    database="recommendation_engine"
+)
+
+sql_query = "SELECT * FROM mathresources"
 
 #Reading CSV file
-df = pd.read_csv("mathResources.csv", low_memory=False)
+#df = pd.read_csv("mathResources.csv", low_memory=False)
 #print(df)
 
-tf = TfidfVectorizer(analyzer='word', ngram_range=(1,3), min_df=0, stop_words='english')
+df = pd.read_sql(sql=sql_query, con=mydb)
+#print(df)
+
+tf = TfidfVectorizer(analyzer='word', ngram_range=(1,3), min_df=0.0, stop_words='english')
 tfidf_matrix = tf.fit_transform(df['genre'])
 #print(tfidf_matrix.shape)
 cosine_similarities = linear_kernel(tfidf_matrix, tfidf_matrix)

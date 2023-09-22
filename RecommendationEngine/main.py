@@ -8,8 +8,17 @@ from collaborative_filtering_math_flaskVersion import generate_recommendation
 import pandas as pd
 import random
 import os
+import mysql.connector
 
 app = Flask(__name__)
+
+#SQL connection
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="khcy6ycy",
+    database="recommendation_engine"
+)
 
 # @app.route('/landingPage')
 # def recommendedItem():
@@ -87,7 +96,10 @@ app = Flask(__name__)
 #Recommendation based on Content-based Filtering for tackling cold start problems
 @app.route('/contentBasedRecommendationMath')
 def mathContentBasedFiltering():
-    df = pd.read_csv("mathResources.csv", low_memory=False)
+    
+    #for testing purpose to generate dynamic randomization
+    sql_query = "SELECT * FROM mathresources"
+    df = pd.read_sql(sql=sql_query, con=mydb)
     rsc_title = df['title'].values
     rand_max_limit = len(rsc_title)
     rand_rsc_title =  random.randint(0,rand_max_limit-1)
