@@ -14,11 +14,13 @@ app = Flask(__name__)
 
 #SQL connection
 mydb = mysql.connector.connect(
-    host="localhost",
+    host="mysql",
     user="root",
     password="khcy6ycy",
-    database="recommendation_engine"
+    database="recommendation_engine",
+    port=3306
 )
+print("Database connected")
 
 # @app.route('/landingPage')
 # def recommendedItem():
@@ -98,7 +100,7 @@ mydb = mysql.connector.connect(
 def mathContentBasedFiltering():
     
     #for testing purpose to generate dynamic randomization
-    sql_query = "SELECT * FROM mathresources"
+    sql_query = "SELECT * FROM recommendation_engine.mathresources"
     df = pd.read_sql(sql=sql_query, con=mydb)
     rsc_title = df['title'].values
     rand_max_limit = len(rsc_title)

@@ -13,15 +13,16 @@ import mysql.connector
 
 #SQL connection
 mydb = mysql.connector.connect(
-    host="localhost",
+    host="mysql",
     user="root",
     password="khcy6ycy",
-    database="recommendation_engine"
+    database="recommendation_engine",
+    port=3306
 )
+print("Database connected")
 
-
-sql_query = "SELECT * FROM mathresources"
-sql_query2 = "SELECT * FROM resource_ratings"
+sql_query = "SELECT * FROM recommendation_engine.mathresources"
+sql_query2 = "SELECT * FROM recommendation_engine.resource_ratings"
 resource_data = pd.read_sql(sql=sql_query, con=mydb)
 ratings_data = pd.read_sql(sql=sql_query2, con=mydb)
 

@@ -7,13 +7,14 @@ from sklearn.metrics.pairwise import linear_kernel
 import mysql.connector
 
 mydb = mysql.connector.connect(
-    host="localhost",
+    host="mysql",
     user="root",
     password="khcy6ycy",
-    database="recommendation_engine"
+    database="recommendation_engine",
+    port=3306
 )
-
-sql_query = "SELECT * FROM mathresources"
+print("Database connected")
+sql_query = "SELECT * FROM recommendation_engine.mathresources"
 
 #Reading CSV file
 #df = pd.read_csv("mathResources.csv", low_memory=False)
