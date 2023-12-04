@@ -12,8 +12,15 @@ from surprise.model_selection import train_test_split
 import mysql.connector
 
 #SQL connection
+# mydb = mysql.connector.connect(
+#     host="mysql",
+#     user="root",
+#     password="khcy6ycy",
+#     database="recommendation_engine",
+#     port=3306
+# )
 mydb = mysql.connector.connect(
-    host="mysql",
+    host="localhost",
     user="root",
     password="khcy6ycy",
     database="recommendation_engine",

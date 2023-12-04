@@ -6,8 +6,16 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 import mysql.connector
 
+# mydb = mysql.connector.connect(
+#     host="mysql",
+#     user="root",
+#     password="khcy6ycy",
+#     database="recommendation_engine",
+#     port=3306
+# )
+
 mydb = mysql.connector.connect(
-    host="mysql",
+    host="localhost",
     user="root",
     password="khcy6ycy",
     database="recommendation_engine",

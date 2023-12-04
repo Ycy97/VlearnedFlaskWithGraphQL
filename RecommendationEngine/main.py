@@ -12,9 +12,16 @@ import mysql.connector
 
 app = Flask(__name__)
 
-#SQL connection
+#SQL connection for Docker
+# mydb = mysql.connector.connect(
+#     host="mysql",
+#     user="root",
+#     password="khcy6ycy",
+#     database="recommendation_engine",
+#     port=3306
+# )
 mydb = mysql.connector.connect(
-    host="mysql",
+    host="localhost",
     user="root",
     password="khcy6ycy",
     database="recommendation_engine",
