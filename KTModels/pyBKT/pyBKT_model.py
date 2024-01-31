@@ -11,14 +11,14 @@ def BKT():
     test_df = pd.read_csv('VlearnedFlaskWithGraphQL/KTModels/data/test.csv')
     test2_df = pd.read_csv('VlearnedFlaskWithGraphQL/KTModels/data/test2.csv')
     defaults = {'user_id': 'studentID', 'skill_name': 'skillComponent', 'correct': 'Correct', 'start_time': 'start',
-                'end_time': 'end', 'multigs': 'studentID'}
+                'end_time': 'end', 'multilearn': 'studentID', 'multigs' : True}
     # defaults = {'user_id': 'studentID', 'skill_name': 'skillComponent', 'correct': 'Correct', 'start_time': 'start',
     #             'end_time': 'end'}
-    skill = ["addition", "subtraction"]
+    #skill = ["addition", "subtraction"]
     #model.fit(data = test2_df, defaults=defaults, skills=skill, multilearn='studentID', multigs=True)
-    model.fit(data = test2_df, defaults=defaults, skills=skill)
-    training_rmse = model.evaluate(data = test_df)
-    training_auc = model.evaluate(data = test_df, metric = 'auc')
+    model.fit(data = test2_df, defaults=defaults)
+    training_rmse = model.evaluate(data = test2_df)
+    training_auc = model.evaluate(data = test2_df, metric = 'auc')
     print("Training RMSE: %f" % training_rmse)
     print("Training AUC: %f" % training_auc)
     print("Model Parameters : \n")

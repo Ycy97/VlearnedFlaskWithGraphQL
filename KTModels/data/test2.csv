@@ -1,5 +1,27 @@
-﻿studentID,skillComponent,Correct,start_time,end_time
-5,subtraction,0,29:29.0,30:36.0
-5,subtraction,1,39:29.0,40:36.0
-5,subtraction,1,49:29.0,50:36.0
-5,subtraction,0,59:29.0,60:36.0
+﻿studentID,start,end,Correct,skillComponent
+1715PsM5,40:17.0,40:22.0,1,Calculate unit rate
+1715PsM5,41:00.0,42:32.0,1,Calculate unit rate
+1715PsM5,52:55.0,54:45.0,1,Calculate unit rate
+1715PsM5,55:43.0,55:54.0,1,Calculate unit rate
+1715PsM5,56:50.0,56:56.0,1,Calculate unit rate
+1715PsM5,57:21.0,58:01.0,1,Calculate unit rate
+1715PsM5,58:53.0,00:54.0,1,Calculate unit rate
+1715PsM5,01:23.0,01:28.0,1,Calculate unit rate
+1715PsM5,02:07.0,02:12.0,1,Calculate unit rate
+1715PsM5,02:47.0,02:50.0,1,Calculate unit rate
+1715PsM5,06:28.0,06:33.0,1,Calculate part in proportion with fractions
+1715PsM5,11:07.0,11:12.0,1,Calculate total in proportion with fractions
+1715PsM5,15:17.0,15:24.0,1,Calculate total in proportion with fractions
+1715PsM5,22:30.0,22:34.0,0,Calculate part in proportion with fractions
+1715PsM5,26:16.0,26:20.0,1,Calculate part in proportion with fractions
+1715PsM5,28:27.0,28:40.0,1,Calculate total in proportion with fractions
+1715PsM5,30:09.0,30:24.0,1,Calculate part in proportion with fractions
+1715PsM5,57:01.0,57:06.0,1,Calculate total in proportion with fractions
+1715PsM5,58:39.0,58:43.0,1,Calculate part in proportion with fractions
+1715PsM5,01:11.0,01:15.0,1,Calculate part in proportion with fractions
+1715PsM5,02:42.0,02:46.0,1,Calculate total in proportion with fractions
+1715PsM5,03:59.0,04:15.0,1,Calculate part in proportion with fractions
+1715PsM5,06:25.0,06:36.0,1,Calculate total in proportion with fractions
+1715PsM5,07:28.0,07:34.0,1,Calculate part in proportion with fractions
+1715PsM5,08:45.0,08:48.0,1,Calculate total in proportion with fractions
+1715PsM5,10:26.0,10:31.0,1,Calculate total in proportion with fractions
