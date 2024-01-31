@@ -1,5 +1,5 @@
 #main file where flask initialize
-
+#main file to be edited into a fully functional Adaptive Learning System (Rec System + KT model)
 from flask import Flask, jsonify
 from content_based_filtering_maths import get_recommendations
 from collaborative_filtering_math_flaskVersion import generate_recommendation
